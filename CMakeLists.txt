@@ -64,6 +64,7 @@ install(TARGETS
 
 install(PROGRAMS
   script/tracker_node.py
+  script/detect_test_node.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

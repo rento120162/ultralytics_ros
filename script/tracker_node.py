@@ -31,16 +31,18 @@ from ultralytics_ros.msg import YoloResult
 class TrackerNode(Node):
     def __init__(self):
         super().__init__("tracker_node")
+        #predict parameter
         self.declare_parameter("yolo_model", "yolov8n.pt")
         self.declare_parameter("input_topic", "image_raw")
         self.declare_parameter("result_topic", "yolo_result")
         self.declare_parameter("result_image_topic", "yolo_image")
         self.declare_parameter("conf_thres", 0.25)
         self.declare_parameter("iou_thres", 0.45)
+        self.declare_parameter("imgsz", 640)
         self.declare_parameter("max_det", 300)
         self.declare_parameter("classes", list(range(80)))
         self.declare_parameter("tracker", "bytetrack.yaml")
-        self.declare_parameter("device", "cpu")
+        self.declare_parameter("device", "0")
         self.declare_parameter("result_conf", True)
         self.declare_parameter("result_line_width", 1)
         self.declare_parameter("result_font_size", 1)
